@@ -32,8 +32,7 @@ void setup()
   pinMode(FLEX_PIN, INPUT);
 }
 
-void loop() 
-{
+void loop() {
   // Read the ADC, and calculate voltage and resistance from it
   int flexADC = analogRead(FLEX_PIN);
   float flexV = flexADC * VCC / 1023.0;
