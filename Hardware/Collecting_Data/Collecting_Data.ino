@@ -24,6 +24,7 @@ SoftwareSerial mySerial(8,9);
 
 
 void setup() {
+  // Initialising serial
   Serial.begin(9600);
 
   // Checking Accelerometer is working
@@ -33,27 +34,28 @@ void setup() {
   }
 
   Serial.println("Accelerometer Functioning");
-  Serial.print("Range = "); Serial.print(2 << mma.getRange());  
-  Serial.println("G");
   // Setting accelerometer range to 2G
   mma.setRange(MMA8451_RANGE_2_G);
 
-  // Flexor input setup
+  // Setting flexometer input pin
   pinMode(FLEX_PIN, INPUT);
 
-  // Bluetooth output setup
+  // Setting up the BAUD for bluetooth output
   mySerial.begin(9600);
 
 }
 
 void loop() {
+  
    // ACCELEROMETER
    mma.read();
    sensors_event_t event;
    mma.getEvent(&event);
- 
+   
+   // Storing acceleration data in an array (x, y, z)
    double acceleration[3] = {event.acceleration.x, event.acceleration.y, event.acceleration.z };
-
+   
+   // Getting orientation value
    uint8_t o = mma.getOrientation();
    double orientation_num;
    
@@ -61,49 +63,51 @@ void loop() {
    
    switch (o) {
      case MMA8451_PL_PUF: 
-       orientation = "PortraitUpFront";
+       orientation = "PUF";
        orientation_num = 1;
        break;
      case MMA8451_PL_PUB: 
-       orientation = "PortraitUpBack";
+       orientation = "PUB";
        orientation_num = 2;
        break;    
      case MMA8451_PL_PDF: 
-       orientation = "PortraitDownFront";
+       orientation = "PDF";
        orientation_num = 3;
        break;
      case MMA8451_PL_PDB: 
-       orientation = "PortraitDownBack";
+       orientation = "PDB";
        orientation_num = 4;
        break;
      case MMA8451_PL_LRF: 
-       orientation = "LandscapeRightFront";
+       orientation = "LRF";
        orientation_num = 5;
        break;
      case MMA8451_PL_LRB: 
-       orientation = "LandscapeRightBack";
+       orientation = "LRB";
        orientation_num = 6;
        break;
      case MMA8451_PL_LLF: 
-       orientation = "LandscapeLeftFront";
+       orientation = "LLF";
        orientation_num = 7;
        break;
      case MMA8451_PL_LLB: 
-       orientation = "LandscapeLeftBack";
+       orientation = "LLB";
        orientation_num = 8;
        break;
     };
 
     // FLEXOR
+    // Reading current from flex pin (ADC)
     int flexADC = analogRead(FLEX_PIN);
+    // Voltage
     float flexV = flexADC * VCC / 1023.0;
     // Resistance in ohms
     float flexR = R_DIV * (VCC / flexV - 1.0);
-    // Curvature of device in degrees
+    // Curvature of device in degrees (bend away from white side)
     float angle = map(flexR, STRAIGHT_RESISTANCE, BEND_RESISTANCE, 0, 90.0);
 
     /*
-    // Print data
+    // Printing data to serial monitor
     Serial.println("Accelerometer:");
     Serial.print(acceleration[0]);
     Serial.print(", ");
@@ -117,7 +121,20 @@ void loop() {
     */
     // Package data
     double data_package[5] = {acceleration[0], acceleration[1], acceleration[2], orientation_num, angle};
-    mySerial.write(data_package);
-    
+
+    // Printing data to bluetooth (highly inefficient)
+    mySerial.println("Acceleration: ");
+    delay(100);
+    mySerial.println(acceleration[0]);
+    delay(100);
+    mySerial.println(acceleration[1]);
+    delay(100);
+    mySerial.println(acceleration[2]);
+    delay(500);
+    mySerial.println("Orientation: ");
+    mySerial.println(orientation);
+    delay(500);
+    mySerial.println("Angle: ");
+    mySerial.println(angle);
     delay(500);
 }
