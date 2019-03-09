@@ -121,7 +121,7 @@ void loop() {
     */
     // Package data
     double data_package[5] = {acceleration[0], acceleration[1], acceleration[2], orientation_num, angle};
-
+/*
     // Printing data to bluetooth (highly inefficient)
     mySerial.println("Acceleration: ");
     delay(100);
@@ -137,4 +137,14 @@ void loop() {
     mySerial.println("Angle: ");
     mySerial.println(angle);
     delay(500);
+*/
+    // Printing with HEX (fast)
+    mySerial.println(acceleration[0], HEX);
+    mySerial.println(acceleration[1], HEX);
+    mySerial.println(acceleration[2], HEX);
+    mySerial.println(orientation_num, HEX);
+    mySerial.println(angle, HEX);
+
+    delay(500);
+
 }
