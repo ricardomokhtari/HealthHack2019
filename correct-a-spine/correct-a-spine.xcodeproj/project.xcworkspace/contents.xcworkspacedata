@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/jackmorrison/Documents/Imperial/HealthHack/HealthHack2019/correct-a-spine/correct-a-spine/logo_master.jpeg">
-   </FileRef>
-   <FileRef
       location = "self:correct-a-spine.xcodeproj">
    </FileRef>
 </Workspace>
