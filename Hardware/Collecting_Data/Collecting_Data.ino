@@ -18,6 +18,10 @@ const float R_DIV = 47500.0; // Measured resistance of 3.3k resistor
 const float STRAIGHT_RESISTANCE = 40054.0; // resistance when straight
 const float BEND_RESISTANCE =  52000.00; // resistance at 90 deg
 
+// Bluetooth Setup
+#include <SoftwareSerial.h>
+SoftwareSerial mySerial(8,9);
+
 
 void setup() {
   Serial.begin(9600);
@@ -37,6 +41,9 @@ void setup() {
   // Flexor input setup
   pinMode(FLEX_PIN, INPUT);
 
+  // Bluetooth output setup
+  mySerial.begin(9600);
+
 }
 
 void loop() {
@@ -48,32 +55,42 @@ void loop() {
    double acceleration[3] = {event.acceleration.x, event.acceleration.y, event.acceleration.z };
 
    uint8_t o = mma.getOrientation();
-
+   double orientation_num;
+   
    String orientation;
+   
    switch (o) {
      case MMA8451_PL_PUF: 
-       orientation = "Portrait Up Front";
+       orientation = "PortraitUpFront";
+       orientation_num = 1;
        break;
      case MMA8451_PL_PUB: 
-       orientation = "Portrait Up Back";
+       orientation = "PortraitUpBack";
+       orientation_num = 2;
        break;    
      case MMA8451_PL_PDF: 
-       orientation = "Portrait Down Front";
+       orientation = "PortraitDownFront";
+       orientation_num = 3;
        break;
      case MMA8451_PL_PDB: 
-       orientation = "Portrait Down Back";
+       orientation = "PortraitDownBack";
+       orientation_num = 4;
        break;
      case MMA8451_PL_LRF: 
-       orientation = "Landscape Right Front";
+       orientation = "LandscapeRightFront";
+       orientation_num = 5;
        break;
      case MMA8451_PL_LRB: 
-       orientation = "Landscape Right Back";
+       orientation = "LandscapeRightBack";
+       orientation_num = 6;
        break;
      case MMA8451_PL_LLF: 
-       orientation = "Landscape Left Front";
+       orientation = "LandscapeLeftFront";
+       orientation_num = 7;
        break;
      case MMA8451_PL_LLB: 
-       orientation = "Landscape Left Back";
+       orientation = "LandscapeLeftBack";
+       orientation_num = 8;
        break;
     };
 
@@ -85,7 +102,7 @@ void loop() {
     // Curvature of device in degrees
     float angle = map(flexR, STRAIGHT_RESISTANCE, BEND_RESISTANCE, 0, 90.0);
 
-
+    /*
     // Print data
     Serial.println("Accelerometer:");
     Serial.print(acceleration[0]);
@@ -97,5 +114,10 @@ void loop() {
     Serial.println("Flexometer:");
     Serial.print(angle);
     Serial.println(" degrees");
+    */
+    // Package data
+    double data_package[5] = {acceleration[0], acceleration[1], acceleration[2], orientation_num, angle};
+    mySerial.write(data_package);
+    
     delay(500);
 }
