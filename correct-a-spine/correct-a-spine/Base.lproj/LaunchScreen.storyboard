@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_master.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="7V7-cp-cFK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_master" translatesAutoresizingMaskIntoConstraints="NO" id="7V7-cp-cFK">
                                 <rect key="frame" x="0.0" y="176.66666666666663" width="414" height="243"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="243" id="Fa3-wd-ZcO"/>
@@ -42,6 +42,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo_master.jpeg" width="1310" height="936"/>
+        <image name="logo_master" width="655" height="468"/>
     </resources>
 </document>
