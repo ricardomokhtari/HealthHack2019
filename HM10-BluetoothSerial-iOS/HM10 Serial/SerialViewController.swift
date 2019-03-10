@@ -35,7 +35,7 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
 //MARK: IBOutlets
     
     @IBOutlet weak var mainTextView: UITextView!
-    @IBOutlet weak var messageField: UITextField!
+    //@IBOutlet weak var messageField: UITextField!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint! // used to move the textField up when the keyboard is present
     @IBOutlet weak var barButton: UIBarButtonItem!
@@ -66,11 +66,13 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         view.addGestureRecognizer(tap)
         
         // style the bottom UIView
-        bottomView.layer.masksToBounds = false
-        bottomView.layer.shadowOffset = CGSize(width: 0, height: -1)
-        bottomView.layer.shadowRadius = 0
-        bottomView.layer.shadowOpacity = 0.5
-        bottomView.layer.shadowColor = UIColor.gray.cgColor
+//        bottomView.layer.masksToBounds = false
+//        bottomView.layer.shadowOffset = CGSize(width: 0, height: -1)
+//        bottomView.layer.shadowRadius = 0
+//        bottomView.layer.shadowOpacity = 0.5
+//        bottomView.layer.shadowColor = UIColor.gray.cgColor
+    
+        
     }
 
     deinit {
@@ -100,6 +102,7 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     }
     
     func reloadView() {
+        
         // in case we're the visible view again
         serial.delegate = self
         
@@ -109,12 +112,12 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
             barButton.tintColor = UIColor.red
             barButton.isEnabled = true
         } else if serial.centralManager.state == .poweredOn {
-            navItem.title = "Bluetooth Serial"
+            navItem.title = "correct-a-spine"
             barButton.title = "Connect"
             barButton.tintColor = view.tintColor
             barButton.isEnabled = true
         } else {
-            navItem.title = "Bluetooth Serial"
+            navItem.title = "correct-a-spine"
             barButton.title = "Connect"
             barButton.tintColor = view.tintColor
             barButton.isEnabled = false
@@ -197,33 +200,33 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
             let alert = UIAlertController(title: "Not connected", message: "What am I supposed to send this to?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: { action -> Void in self.dismiss(animated: true, completion: nil) }))
             present(alert, animated: true, completion: nil)
-            messageField.resignFirstResponder()
+            //messageField.resignFirstResponder()
             return true
         }
         
         // send the message to the bluetooth device
         // but fist, add optionally a line break or carriage return (or both) to the message
         let pref = UserDefaults.standard.integer(forKey: MessageOptionKey)
-        var msg = messageField.text!
-        switch pref {
-        case MessageOption.newline.rawValue:
-            msg += "\n"
-        case MessageOption.carriageReturn.rawValue:
-            msg += "\r"
-        case MessageOption.carriageReturnAndNewline.rawValue:
-            msg += "\r\n"
-        default:
-            msg += ""
-        }
+        //var msg = messageField.text!
+//        switch pref {
+//        case MessageOption.newline.rawValue:
+//            //msg += "\n"
+//        case MessageOption.carriageReturn.rawValue:
+//            //msg += "\r"
+//        case MessageOption.carriageReturnAndNewline.rawValue:
+//            //msg += "\r\n"
+//        default:
+//            //msg += ""
+//        }
         
         // send the message and clear the textfield
-        serial.sendMessageToDevice(msg)
-        messageField.text = ""
+        //serial.sendMessageToDevice(msg)
+        //messageField.text = ""
         return true
     }
     
     func dismissKeyboard() {
-        messageField.resignFirstResponder()
+        //messageField.resignFirstResponder()
     }
     
     

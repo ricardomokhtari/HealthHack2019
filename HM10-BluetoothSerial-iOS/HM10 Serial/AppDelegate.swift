@@ -24,6 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserDefaults.standard.register(defaults: [MessageOptionKey: MessageOption.noLineEnding.rawValue,
                                           ReceivedMessageOptionKey: ReceivedMessageOption.none.rawValue])
         
+        UINavigationBar.appearance().backgroundColor = UIColor.black
+        UINavigationBar.appearance().barTintColor = UIColor.black
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        UINavigationBar.appearance().tintColor = UIColor.black
+        UIBarButtonItem.appearance().tintColor = UIColor.white
+        
+        
         return true
     }
 
