@@ -1,0 +1,340 @@
+Accelerometer:
+-0.07, -9.74, 2.60
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+-0.73, -9.13, 2.79
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.24, -9.20, 2.79
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+-0.46, -9.53, 2.64
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+-0.15, -9.68, 2.62
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+-0.22, -9.36, 2.32
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+-0.15, -9.39, 2.89
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+-0.07, -9.46, 2.91
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+-0.25, -9.49, 2.68
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.08, -9.49, 3.13
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+-0.10, -9.49, 2.86
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.15, -9.61, 2.79
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.06, -9.37, 2.66
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+-0.04, -9.39, 2.54
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+-0.13, -9.45, 3.03
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.23, -9.73, 2.72
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.13, -9.76, 2.78
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.17, -9.54, 2.55
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.19, -9.76, 2.36
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+-0.31, -10.10, 1.94
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.34, -9.50, 2.00
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.10, -9.77, 1.12
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.16, -9.35, 0.98
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.00, -10.02, 0.66
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.20, -9.89, 0.75
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.13, -9.82, 0.44
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.28, -9.96, -0.06
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.61, -10.01, -0.11
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.09, -10.00, -0.54
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.53, -9.69, -0.67
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.59, -10.00, -0.97
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.67, -9.99, -1.16
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+-0.07, -9.58, -1.41
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.34, -9.59, -1.86
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.41, -9.76, -2.21
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.31, -9.69, -1.77
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.10, -9.91, -2.02
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.08, -9.58, -2.27
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.13, -9.38, -2.27
+PUF
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.28, -9.51, -2.60
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.47, -9.68, -2.67
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.38, -9.51, -3.04
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.49, -9.39, -3.09
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.75, -9.31, -3.29
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.30, -9.03, -3.17
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.21, -9.17, -3.00
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.34, -9.01, -2.94
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.65, -9.34, -3.25
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.28, -9.40, -3.18
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.38, -9.61, -3.23
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+-0.14, -9.30, -3.25
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.38, -9.43, -3.25
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.48, -9.28, -3.30
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.25, -9.29, -3.04
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.19, -9.32, -3.25
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.57, -9.67, -3.37
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.56, -9.29, -3.18
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.36, -9.35, -3.14
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.41, -9.33, -3.06
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.29, -9.24, -3.10
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.60, -9.50, -3.26
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.44, -9.43, -3.23
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.43, -9.40, -3.18
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.40, -9.25, -3.10
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.39, -9.28, -3.09
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.52, -9.55, -2.72
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.51, -9.52, -3.40
+PUB
+Flexometer:
+10.00 degrees
+Accelerometer:
+0.30, -9.36, -3.10
+PUB
+Flexometer:
+10.00 degrees
