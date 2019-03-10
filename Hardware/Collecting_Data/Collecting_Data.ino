@@ -40,6 +40,11 @@ void setup() {
   // Setting flexometer input pin
   pinMode(FLEX_PIN, INPUT);
 
+  while(1) {
+    if (Serial.available()>0){
+      break;
+      }
+    }
   // Setting up the BAUD for bluetooth output
   mySerial.begin(9600);
 
@@ -106,7 +111,7 @@ void loop() {
     // Curvature of device in degrees (bend away from white side)
     float angle = map(flexR, STRAIGHT_RESISTANCE, BEND_RESISTANCE, 0, 90.0);
 
-    /*
+    
     // Printing data to serial monitor
     Serial.println("Accelerometer:");
     Serial.print(acceleration[0]);
@@ -118,35 +123,23 @@ void loop() {
     Serial.println("Flexometer:");
     Serial.print(angle);
     Serial.println(" degrees");
-    */
+    delay(50);
+    
     // Package data
     double data_package[5] = {acceleration[0], acceleration[1], acceleration[2], orientation_num, angle};
     /*
-    // Printing data to bluetooth (highly inefficient)
-    mySerial.println("Acceleration: ");
-    delay(50);
-    mySerial.println(acceleration[0]);
-    delay(50);
-    mySerial.println(acceleration[1]);
-    delay(50);
-    mySerial.println(acceleration[2]);
-    delay(50);
-    mySerial.println("Orientation: ");
-    mySerial.println(orientation);
-    delay(50);
-    mySerial.println("Angle: ");
-    mySerial.println(angle);
-    delay(50);
-    */
-    
-    // Printing with HEX (fast)
+    // Sending to bluetooth (fast)
     mySerial.println('\n');
+    delay(10);
     mySerial.println(acceleration[0]);
+    delay(10);
     mySerial.println(acceleration[1]);
+    delay(10);
     mySerial.println(acceleration[2]);
+    delay(10);
     mySerial.println(orientation_num);
+    delay(10);
     mySerial.println(angle);
-    
-    delay(500);
-
+    delay(100);
+    */
 }
