@@ -29,6 +29,15 @@ var dataCount = 0
 var angles = Array(repeating: 0, count: 20)
 var angleCount = 0
 
+var xs = Array(repeating: 0.0, count: 20)
+var xCount = 0
+
+var ys = Array(repeating: 0.0, count: 20)
+var yCount = 0
+
+var zs = Array(repeating: 0.0, count: 20)
+var zCount = 0
+
 
 final class SerialViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDelegate {
 
@@ -36,6 +45,8 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     
     @IBOutlet weak var mainTextView: UITextView!
     //@IBOutlet weak var messageField: UITextField!
+    @IBOutlet weak var postureLabel: UILabel!
+    @IBOutlet weak var accLabel: UILabel!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint! // used to move the textField up when the keyboard is present
     @IBOutlet weak var barButton: UIBarButtonItem!
@@ -138,6 +149,35 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
        // let pref = UserDefaults.standard.integer(forKey: ReceivedMessageOptionKey)
        // if pref == ReceivedMessageOption.newline.rawValue { mainTextView.text! += "\n" }
         print(String(dataCount) + " " + message)
+        if(dataCount == 1){
+            xs[xCount] = (message as NSString).doubleValue
+            xCount += 1
+            xCount = xCount % 20
+        }
+        if(dataCount == 2){
+            ys[yCount] = (message as NSString).doubleValue
+            yCount += 1
+            yCount = yCount % 20
+        }
+        if(dataCount == 3){
+            zs[zCount] = (message as NSString).doubleValue
+            zCount += 1
+            zCount = zCount % 20
+        }
+        let xAvg = averaged(nums: xs)
+        let yAvg = averaged(nums: ys)
+        let zAvg = averaged(nums: zs)
+        print("ANS")
+        let aVal = (atan((((zAvg)/(((yAvg*yAvg)+(xAvg*xAvg)).squareRoot()))))/(2*Double.pi)*360.0)
+        print(aVal)
+        if(aVal < 25){
+            //self.view.backgroundColor = UIColor.red
+            accLabel.text = "Move your head up"
+        } else {
+            //self.view.backgroundColor = UIColor.green
+            accLabel.text = "Head position is good"
+        }
+        
         if(dataCount == 5) {
             angles[angleCount] = (message as NSString).integerValue
             angleCount += 1
@@ -146,13 +186,23 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
             mainTextView.text! += String(average(nums: angles))
             if(average(nums: angles) > 10){
                 self.view.backgroundColor = UIColor.red
+                postureLabel.text = "Your posture is bad"
             } else {
-                self.view.backgroundColor = UIColor.blue
+                self.view.backgroundColor = UIColor.green
+                    postureLabel.text = "Your posture is good"
             }
         }
         
         
         dataCount += 1
+        let decimalCharacters = CharacterSet.decimalDigits
+        
+        let decimalRange = message.rangeOfCharacter(from: decimalCharacters)
+
+        if decimalRange == nil{
+            dataCount = 1
+        }
+        
         dataCount = dataCount % 6
         textViewScrollToBottom()
     }
@@ -172,6 +222,20 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         return average
     }
     
+    func averaged(nums: [Double]) -> Double {
+        
+        var total = 0.0
+        //use the parameter-array instead of the global variable votes
+        for num in nums{
+            
+            total += Double(num)
+            
+        }
+        
+        let numTotal = Double(nums.count)
+        let average = total/numTotal
+        return average
+    }
     func serialDidDisconnect(_ peripheral: CBPeripheral, error: NSError?) {
         reloadView()
         dismissKeyboard()
